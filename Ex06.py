@@ -1,5 +1,6 @@
-def sortedRatings(fileName):
-    scoreFile = open(fileName)
+import sys
+
+def sortedRatings(scoreFile):
 
     restaurantScores = {}
 
@@ -13,7 +14,8 @@ def sortedRatings(fileName):
         print "Restaurant %s is rated at %r." % (item, restaurantScores[item])
 
 def main():
-    sortedRatings("scores.txt")
+    filename = open(sys.argv[1])
+    sortedRatings(filename)
 
 if __name__ == "__main__":
     main()
