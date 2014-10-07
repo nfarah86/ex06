@@ -1,6 +1,6 @@
 import sys
 
-def sortedRatings(scoreFile):
+def setupDictionary(scoreFile):
 
     restaurantScores = {}
 
@@ -8,14 +8,21 @@ def sortedRatings(scoreFile):
         noSpaces = line.strip()
         key, value = noSpaces.split(':')
         restaurantScores[key] = int(value)
+    print restaurantScores
+    return restaurantScores
+
+def sortedName(dictionary):
     alphaKeys = sorted(restaurantScores.keys())
 
     for item in alphaKeys:
         print "Restaurant %s is rated at %r." % (item, restaurantScores[item])
 
+def sortedRatings(dictionary):
+    pass
+
 def main():
-    filename = open(sys.argv[1])
-    sortedRatings(filename)
+    fileObject = open(sys.argv[1])
+    restaurantDictionary = setupDictionary(fileObject)
 
 if __name__ == "__main__":
     main()
